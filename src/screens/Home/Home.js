@@ -1,28 +1,44 @@
-import React, { Component } from "react";
-import {
-  View,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  StatusBar
-} from "react-native";
-import Header from "./components/Header";
-import PrayerInfo from "./components/PrayerInfo";
-import PrayerTime from "./components/PrayerTime";
-import { Color } from "../../utils/Color";
+import React, { PureComponent } from 'react';
+import { View, ImageBackground, ScrollView, StyleSheet, StatusBar } from 'react-native';
+import Header from './components/Header';
+import PrayerInfo from './components/PrayerInfo';
+import PrayerTime from './components/PrayerTime';
+import { Color } from '../../utils/Color';
 
-class Home extends Component {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  content: {
+    marginHorizontal: 10,
+    marginTop: 5,
+    flex: 1,
+  },
+  header: {
+    marginTop: 30,
+    height: 60,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  headerCity: {
+    fontSize: 25,
+    fontWeight: '700',
+    color: Color.COLOR_PRIMARY,
+  },
+  headerMargin: {
+    marginRight: 10,
+  },
+});
+
+class Home extends PureComponent {
   render() {
     return (
-      <ImageBackground
-        source={require("../../assets/img/mosque.jpg")}
-        style={styles.container}
-      >
-        <StatusBar
-          translucent={true}
-          backgroundColor="rgba(0,0,0,.4)"
-          barStyle="light-content"
-        />
+      <ImageBackground source={require('../../assets/img/mosque.jpg')} style={styles.container}>
+        <StatusBar translucent backgroundColor="rgba(0,0,0,.4)" barStyle="light-content" />
         <View style={styles.overlay}>
           <View style={styles.content}>
             <Header location="Cibinong" />
@@ -47,34 +63,5 @@ class Home extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.6)"
-  },
-  content: {
-    marginHorizontal: 10,
-    marginTop: 5,
-    flex: 1
-  },
-  header: {
-    marginTop: 30,
-    height: 60,
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  headerCity: {
-    fontSize: 25,
-    fontWeight: "700",
-    color: Color.COLOR_PRIMARY
-  },
-  headerMargin: {
-    marginRight: 10
-  }
-});
 
 export default Home;

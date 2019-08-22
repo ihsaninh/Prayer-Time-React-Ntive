@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, AsyncStorage } from 'react-native';
 
-export default class Login extends Component {
-
+export default class Login extends Component{
+  
   _signInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'abc');
     this.props.navigation.navigate('App');
