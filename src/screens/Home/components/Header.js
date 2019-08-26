@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  headerCity: {
+  headerTitle: {
     fontSize: 25,
     fontWeight: '700',
     color: Color.COLOR_PRIMARY,
@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
 });
 
 const Header = props => {
-  const { location } = props;
+  const { title } = props;
   return (
     <View style={styles.header}>
-      <Text style={styles.headerCity}>{location}</Text>
+      <Text style={styles.headerTitle}>{title}</Text>
       <View style={styles.headerDirection}>
         <Icon name="explore" size={27} color={Color.COLOR_PRIMARY} style={styles.headerMargin} />
         <Icon
@@ -44,7 +44,7 @@ const Header = props => {
 };
 
 Header.propTypes = {
-  location: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Header;

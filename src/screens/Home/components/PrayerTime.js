@@ -36,19 +36,20 @@ const styles = StyleSheet.create({
   prayerTimeClock: {
     marginLeft: 5,
     marginTop: -2,
+    paddingLeft: 10,
   },
 });
 
 const PrayerTime = props => {
-  const { prayerName, prayerTime } = props;
+  const { name, time } = props;
   return (
     <View style={styles.prayerTimeContainer}>
       <View style={styles.prayerTimeMargin}>
         <View style={styles.prayerTimeWrapper}>
           <View style={styles.prayerTimeFill}>
-            <Text style={styles.prayerTimeFillName}>{prayerName}</Text>
+            <Text style={styles.prayerTimeFillName}>{name}</Text>
             <View style={styles.prayerTimeFillReal}>
-              <Text style={styles.prayerTimeFillTime}>{prayerTime}</Text>
+              <Text style={styles.prayerTimeFillTime}>{time}</Text>
               <Icon
                 name="access-time"
                 style={styles.prayerTimeClock}
@@ -64,7 +65,7 @@ const PrayerTime = props => {
 };
 
 PrayerTime.propTypes = {
-  prayerName: PropTypes.string.isRequired,
-  prayerTime: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
 };
 export default PrayerTime;
