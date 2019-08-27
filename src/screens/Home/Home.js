@@ -7,11 +7,11 @@ import PrayerHeader from './components/PrayerHeader';
 import PrayerLocation from './components/PrayerLocation';
 import PrayerInfo from './components/PrayerInfo';
 import PrayerTime from './components/PrayerTime';
-import { Color } from '../../utils/Color';
+import Color from '../../utils/Color';
 
 class Home extends PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       prayer: '',
       city: 'Tangerang',
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   prayerContent: {
-     flex: 4, 
-     marginHorizontal: 10
+    flex: 4,
+    marginHorizontal: 10,
   },
   header: {
     marginTop: 30,

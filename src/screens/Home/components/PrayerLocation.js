@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Color } from '../../../utils/Color';
+import Color from '../../../utils/Color';
 
 const PrayerLocation = props => {
   const { location } = props;

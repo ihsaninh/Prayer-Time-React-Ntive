@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
-import { Color } from '../../../utils/Color';
+import Color from '../../../utils/Color';
 
 const PrayerHeader = props => {
   const { title } = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { Color } from '../../../utils/Color';
+import Color from '../../../utils/Color';
 
 const PrayerInfo = props => {
   const { dateGreforian, dateHijri, fullLocation } = props;
