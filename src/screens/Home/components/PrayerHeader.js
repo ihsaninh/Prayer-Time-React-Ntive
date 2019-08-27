@@ -4,6 +4,29 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 import { Color } from '../../../utils/Color';
 
+const PrayerHeader = props => {
+  const { title } = props;
+  return (
+    <View style={styles.header}>
+      <Text style={styles.headerTitle}>{title}</Text>
+      <View style={styles.headerDirection}>
+        <Icon name="explore" size={27} color={Color.COLOR_PRIMARY} style={styles.headerMargin} />
+        <Icon
+          name="edit-location"
+          size={27}
+          color={Color.COLOR_PRIMARY}
+          style={styles.headerMargin}
+        />
+        <Icon name="settings" size={27} color={Color.COLOR_PRIMARY} />
+      </View>
+    </View>
+  );
+};
+
+PrayerHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 const styles = StyleSheet.create({
   header: {
     marginTop: 30,
@@ -24,27 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const Header = props => {
-  const { title } = props;
-  return (
-    <View style={styles.header}>
-      <Text style={styles.headerTitle}>{title}</Text>
-      <View style={styles.headerDirection}>
-        <Icon name="explore" size={27} color={Color.COLOR_PRIMARY} style={styles.headerMargin} />
-        <Icon
-          name="edit-location"
-          size={27}
-          color={Color.COLOR_PRIMARY}
-          style={styles.headerMargin}
-        />
-        <Icon name="settings" size={27} color={Color.COLOR_PRIMARY} />
-      </View>
-    </View>
-  );
-};
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
-};
-
-export default Header;
+export default PrayerHeader;

@@ -4,6 +4,35 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 import { Color } from '../../../utils/Color';
 
+const PrayerTime = props => {
+  const { name, time } = props;
+  return (
+    <View style={styles.prayerTimeContainer}>
+      <View style={styles.prayerTimeMargin}>
+        <View style={styles.prayerTimeWrapper}>
+          <View style={styles.prayerTimeFill}>
+            <Text style={styles.prayerTimeFillName}>{name}</Text>
+            <View style={styles.prayerTimeFillReal}>
+              <Text style={styles.prayerTimeFillTime}>{time}</Text>
+              <Icon
+                name="access-time"
+                style={styles.prayerTimeClock}
+                size={27}
+                color={Color.COLOR_PRIMARY}
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+PrayerTime.propTypes = {
+  name: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+};
+
 const styles = StyleSheet.create({
   prayerTimeContainer: {
     marginTop: 5,
@@ -40,32 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const PrayerTime = props => {
-  const { name, time } = props;
-  return (
-    <View style={styles.prayerTimeContainer}>
-      <View style={styles.prayerTimeMargin}>
-        <View style={styles.prayerTimeWrapper}>
-          <View style={styles.prayerTimeFill}>
-            <Text style={styles.prayerTimeFillName}>{name}</Text>
-            <View style={styles.prayerTimeFillReal}>
-              <Text style={styles.prayerTimeFillTime}>{time}</Text>
-              <Icon
-                name="access-time"
-                style={styles.prayerTimeClock}
-                size={27}
-                color={Color.COLOR_PRIMARY}
-              />
-            </View>
-          </View>
-        </View>
-      </View>
-    </View>
-  );
-};
-
-PrayerTime.propTypes = {
-  name: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-};
 export default PrayerTime;

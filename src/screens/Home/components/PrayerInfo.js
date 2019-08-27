@@ -3,6 +3,27 @@ import { StyleSheet, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Color } from '../../../utils/Color';
 
+const PrayerInfo = props => {
+  const { dateGreforian, dateHijri, fullLocation } = props;
+  return (
+    <View>
+      <View style={styles.todayDate}>
+        <Text style={styles.dateHijri}>{dateHijri}</Text>
+        <Text style={styles.dateGregorian}>{dateGreforian}</Text>
+      </View>
+      <View>
+        <Text style={styles.fullLocation}>Wilayah: {fullLocation}</Text>
+      </View>
+    </View>
+  );
+};
+
+PrayerInfo.propTypes = {
+  dateGreforian: PropTypes.string.isRequired,
+  dateHijri: PropTypes.string.isRequired,
+  fullLocation: PropTypes.string.isRequired,
+};
+
 const styles = StyleSheet.create({
   todayDate: {
     flexDirection: 'row',
@@ -26,26 +47,5 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
 });
-
-const PrayerInfo = props => {
-  const { dateGreforian, dateHijri, fullLocation } = props;
-  return (
-    <View>
-      <View style={styles.todayDate}>
-        <Text style={styles.dateHijri}>{dateHijri}</Text>
-        <Text style={styles.dateGregorian}>{dateGreforian}</Text>
-      </View>
-      <View>
-        <Text style={styles.fullLocation}>Wilayah: {fullLocation}</Text>
-      </View>
-    </View>
-  );
-};
-
-PrayerInfo.propTypes = {
-  dateGreforian: PropTypes.string.isRequired,
-  dateHijri: PropTypes.string.isRequired,
-  fullLocation: PropTypes.string.isRequired,
-};
 
 export default PrayerInfo;

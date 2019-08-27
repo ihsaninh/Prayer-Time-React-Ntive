@@ -1,11 +1,10 @@
-/* eslint-disable no-use-before-define */
 import React, { PureComponent } from 'react';
-import { View, ImageBackground, ScrollView, StyleSheet, StatusBar, Text } from 'react-native';
+import { View, ImageBackground, ScrollView, StyleSheet, StatusBar } from 'react-native';
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
 import hijri from 'moment-hijri';
-import Header from './components/Header';
+import PrayerHeader from './components/PrayerHeader';
+import PrayerLocation from './components/PrayerLocation';
 import PrayerInfo from './components/PrayerInfo';
 import PrayerTime from './components/PrayerTime';
 import { Color } from '../../utils/Color';
@@ -55,20 +54,10 @@ class Home extends PureComponent {
         <StatusBar translucent backgroundColor="rgba(0,0,0,.4)" barStyle="light-content" />
         <View style={styles.overlay}>
           <View style={styles.content}>
-            <Header title="Prayer Time" />
-            <View style={{ alignItems: 'center' }}>
-              <View style={{ flexDirection: 'row' }}>
-                <Icon
-                  name="location-on"
-                  size={27}
-                  color={Color.COLOR_PRIMARY}
-                  style={{ marginTop: 3, marginRight: 5 }}
-                />
-                <Text style={{ color: '#ddd', fontSize: 25, fontWeight: 'bold' }}>{location}</Text>
-              </View>
-            </View>
+            <PrayerHeader title="Prayer Time" />
+            <PrayerLocation location={location} />
           </View>
-          <View style={{ flex: 4, marginHorizontal: 10 }}>
+          <View style={styles.prayerContent}>
             <PrayerInfo
               dateHijri={hijri(dateHijri, 'iYYYY-iMM-iDD').format('iYYYY iMMMM iD')}
               dateGreforian={moment(date, 'YYYY-MM-DD').format('D MMMM YYYY')}
@@ -102,6 +91,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginTop: 5,
     flex: 1,
+  },
+  prayerContent: {
+     flex: 4, 
+     marginHorizontal: 10
   },
   header: {
     marginTop: 30,
